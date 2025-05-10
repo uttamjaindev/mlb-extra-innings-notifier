@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: mlb-extra-innings-notifier
+    runtime: python
+    repo: https://github.com/your-username/mlb-extra-innings-notifier
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python notifier.py"
+    envVars:
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
